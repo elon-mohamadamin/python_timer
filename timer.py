@@ -25,8 +25,7 @@ def timeBomb(hours, minutes, seconds):
     countdown = -1
 #    seconds2 = 0
 #    print(f"{minutes}:{seconds}")
-    song = AudioSegment.from_mp3("okletsgo.mp3")
-    play(song)
+    #deleted okletsgo.mp3 on this line
     while seconds != countdown and minutes != countdown and hours != countdown:
 #        timer = f"{hours}:{minutes}:{seconds}"
 #        timer = f"{hours}:{minutes}:{seconds}"
@@ -44,9 +43,10 @@ def timeBomb(hours, minutes, seconds):
                 song = AudioSegment.from_mp3("beep.mp3")
                                     
                 play(song)
-                
             if seconds == -1:
+                song1 = AudioSegment.from_mp3("mozart40nokia.mp3")
                 song = AudioSegment.from_mp3("explosion.mp3")
+                play(song1)
                 play(song)
                 
     
@@ -57,7 +57,6 @@ def timeBomb(hours, minutes, seconds):
         time.sleep(0.155)
         ''' or minutes>0 and seconds2 == -1'''
         #the if statement below was partially fixed by removing the seconds2 == 60 condition which was useless because if minutes>1 then seconds is turned into 59 anyways we dont need a variable to see when a minute has passed
-        
         
         if minutes>0 and seconds == 0 :
 
@@ -84,8 +83,10 @@ while running:
 
     if seconds1<=59 and minutes1<=59 and hours1<=23:
         
-
         if minutes1>0 and seconds1 == 0:
+            song = AudioSegment.from_mp3("click.mp3")
+            play(song)
+            print(f"{minutes1}:{seconds1}")
             minutes1 = minutes1-1
             seconds1 = 59
             
@@ -93,12 +94,17 @@ while running:
 #            print(seconds1)
 
         else:
+            song = AudioSegment.from_mp3("click.mp3")
+            play(song)
             timeBomb(hours1, minutes1, seconds1)
         
         running = False
         
     else:
-        print("you cant have more than 59 seconds or 60 minutes or 23 hours, same deal for minutes")
+        song = AudioSegment.from_mp3("error2.mp3")
+        play(song)
+        print("!!you cant have more than 59 seconds, 59 minutes or 23 hours!!".upper())
+
         running = True
 
 
