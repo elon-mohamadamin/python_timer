@@ -3,78 +3,50 @@ import tkinter as tk
 from pydub import AudioSegment
 from pydub.playback import play
 
-#time.sleep(1)
 
 running = True
-
-
-    
-
-
-
-
-
-
-
-
-
 
 def timeBomb(hours, minutes, seconds):
     #countdown is -1 because the while loop will only count down to 1 if countdown is zero because it will end the loop when seconds == 0
     #therefore we use -1 in order to count down to zero and only skip the loop when seconds == -1
     countdown = -1
-#    seconds2 = 0
-#    print(f"{minutes}:{seconds}")
-    #deleted okletsgo.mp3 on this line
+
     while seconds != countdown and minutes != countdown and hours != countdown:
 #        timer = f"{hours}:{minutes}:{seconds}"
-#        timer = f"{hours}:{minutes}:{seconds}"
-#        print(f"{minutes}:{seconds}")
-        
-        if seconds != -1:
 
+        if seconds != -1:
+# not using the commented out variable above -->timer because seconds does not display correctly for some reason when saying print(timer)
                 print(f"{minutes}:{seconds}")
-    #            print(seconds)
+
         seconds = seconds - 1
         time.sleep(1)
         def beep():
-            if minutes<1 and seconds <10:
+            if minutes<1 and seconds <10 and seconds >-1:###
                 
                 song = AudioSegment.from_mp3("beep.mp3")
                                     
                 play(song)
-            if seconds == -1:
+            if minutes<1 and seconds == 0:###
+                print(f"{minutes}:{seconds}")
                 song1 = AudioSegment.from_mp3("mozart40nokia.mp3")
                 song = AudioSegment.from_mp3("explosion.mp3")
                 play(song1)
                 play(song)
-                
-    
-        
         beep()
 
-        
         time.sleep(0.155)
-        ''' or minutes>0 and seconds2 == -1'''
-        #the if statement below was partially fixed by removing the seconds2 == 60 condition which was useless because if minutes>1 then seconds is turned into 59 anyways we dont need a variable to see when a minute has passed
         
-        if minutes>0 and seconds == 0 :
+        if minutes>0 and seconds == -1 :###
 
             minutes = minutes -1
             seconds = 59
-#            print(timer)
-            '''if seconds == 0 and minutes == 0 and hours ==0:
-                song = AudioSegment.from_mp3("explosion.mp3")
-                
-                play(song)
-            else:
-                continue'''
-            
+
         else:
             continue
 
 
 running = True
+
 while running: 
     seconds1 = int(input("seconds: "))
     minutes1 = int(input("minutes: "))
