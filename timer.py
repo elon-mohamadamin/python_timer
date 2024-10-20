@@ -16,7 +16,8 @@ def timeBomb(hours, minutes, seconds):
 
         if seconds != -1:
 # not using the commented out variable above -->timer because seconds does not display correctly for some reason when saying print(timer)
-                print(f"{minutes}:{seconds}")
+#print(f"{str(hours).zfill(2)}:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}")
+                print(f"{str(minutes).zfill(2)}:{str(seconds).zfill(2)}")
 
         seconds = seconds - 1
         time.sleep(1)
@@ -27,7 +28,7 @@ def timeBomb(hours, minutes, seconds):
                                     
                 play(song)
             if minutes<1 and seconds == 0:###
-                print(f"{minutes}:{seconds}")
+                print(f"{str(minutes).zfill(2)}:{str(seconds).zfill(2)}")
                 song1 = AudioSegment.from_mp3("mozart40nokia.mp3")
                 song = AudioSegment.from_mp3("explosion.mp3")
                 play(song1)
@@ -58,7 +59,7 @@ while running:
         if minutes1>0 and seconds1 == 0:
             song = AudioSegment.from_mp3("click.mp3")
             play(song)
-            print(f"{minutes1}:{seconds1}")
+            print(f"{str(minutes1).zfill(2)}:{str(seconds1).zfill(2)}")
             minutes1 = minutes1-1
             seconds1 = 59
             
