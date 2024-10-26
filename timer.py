@@ -1,7 +1,10 @@
 import time
-import tkinter as tk
+from tkinter import *
 from pydub import AudioSegment
 from pydub.playback import play
+
+
+root = Tk()
 
 
 running = True
