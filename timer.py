@@ -4,7 +4,7 @@ from pydub import AudioSegment
 from pydub.playback import play
 
 
-root = Tk()
+#root = Tk()
 
 
 running = True
