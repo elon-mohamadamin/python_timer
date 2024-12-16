@@ -1,13 +1,53 @@
 import time
-from tkinter import *
+'''import pygame'''
 from pydub import AudioSegment
 from pydub.playback import play
 
-
-#root = Tk()
-
-
+'''pygame.init()
+screen = pygame.display.set_mode((200,200))
+clock = pygame.time.Clock()
+pygame.display.set_caption("TimeBomb!")
 running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    screen.fill("white")
+    
+    
+    
+    pygame.display.update()
+    clock.tick(60)
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def beep(m,s):
+            if m<1 and s <10 and s >-1:###
+                
+                song = AudioSegment.from_mp3("beep.mp3")
+                                    
+                play(song)
+            if m<1 and s == 0:###
+                print(f"{str(m).zfill(2)}:{str(s).zfill(2)}")
+                song1 = AudioSegment.from_mp3("mozart40nokia.mp3")
+                song = AudioSegment.from_mp3("explosion.mp3")
+                play(song1)
+                play(song)
 
 def timeBomb(hours, minutes, seconds):
     #countdown is -1 because the while loop will only count down to 1 if countdown is zero because it will end the loop when seconds == 0
@@ -24,19 +64,8 @@ def timeBomb(hours, minutes, seconds):
 
         seconds = seconds - 1
         time.sleep(1)
-        def beep():
-            if minutes<1 and seconds <10 and seconds >-1:###
-                
-                song = AudioSegment.from_mp3("beep.mp3")
-                                    
-                play(song)
-            if minutes<1 and seconds == 0:###
-                print(f"{str(minutes).zfill(2)}:{str(seconds).zfill(2)}")
-                song1 = AudioSegment.from_mp3("mozart40nokia.mp3")
-                song = AudioSegment.from_mp3("explosion.mp3")
-                play(song1)
-                play(song)
-        beep()
+        
+        beep(minutes, seconds)
 
         time.sleep(0.155)
         
@@ -83,9 +112,8 @@ while running:
 
         running = True
 
-
     
-   
+
 
 
 # PROBLEMS TO FIX NEXT TIME:
